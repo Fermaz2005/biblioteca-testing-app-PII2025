@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace App.Entidades
 {
@@ -24,7 +21,7 @@ namespace App.Entidades
         {
             var libro = _libros.Find(l => l.Titulo == titulo);
             if (libro == null)
-                throw new InvalidOperationException("El libro no se encuentra en la biblioteca.");
+                throw new ArgumentException("El libro no existe en la biblioteca.");
 
             libro.Prestar();
         }
@@ -33,7 +30,7 @@ namespace App.Entidades
         {
             var libro = _libros.Find(l => l.Titulo == titulo);
             if (libro == null)
-                throw new InvalidOperationException("El libro no se encuentra en la biblioteca.");
+                throw new ArgumentException("El libro no existe en la biblioteca.");
 
             libro.Devolver();
         }
